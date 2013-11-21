@@ -2,7 +2,7 @@ decomposition
 =============
 A project to decompose 3D tensor for gene expression time series data.
 
-file list
+File list
 ---------
 main.m
 parafac
