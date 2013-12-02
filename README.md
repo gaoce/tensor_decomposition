@@ -1,5 +1,5 @@
-decomposition
-=============
+Gene Expression Time Series Tensor Decomposition
+================================================
 A project to decompose 3D tensor for gene expression time series data.
 
 Run main.m to proceed
