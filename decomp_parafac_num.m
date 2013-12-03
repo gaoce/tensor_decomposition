@@ -1,6 +1,5 @@
-load ./data/data.mat
-
-%% manually change _chem_ and fill in the vector in the next cell
+%% determine the number of components 
+% manually change _chem_ and fill in the vector in the next cell
 close all;
 
 chem    = 24;
