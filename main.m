@@ -1,9 +1,10 @@
 %% data loading
 clear;clc;close all;
-
-addpath('./lib/nway331/');              % PARAFAC
-% addpath('./lib/tensor_toolbox_2.5/');   % tensor toolbox
-
-% please manually run decomp_parafac_test.m before loading data 
+addpath('./lib/nway331/');            % PARAFAC
+addpath('./lib/vis/export_fig/');     % export_fig
+addpath('./lib/vis/subtightplot/');   % subtightplot
 load ./data/data.mat;
 
+%% parafac 
+% please manually run decomp_parafac_num.m
+decomp_parafac;
