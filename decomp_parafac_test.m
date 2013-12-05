@@ -35,10 +35,11 @@ for chem = 1:24
     
     set(gcf,'color','w');
     export_fig(gcf,['./fig/parafac/test/',chemName{18*chem},'.pdf']);
+
     
 % you can uncomment the following line to visually exam the result, or see
 % the result altogether in fig/parafac/test
 %     pause;
-end
 
 close all;
+
