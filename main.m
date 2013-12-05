@@ -9,5 +9,12 @@ load ./data/data.mat;
 % please uncomment the following line to manually run 
 % decomp_parafac_num.m
 
+% core script for parafac decomposition of each chemical's tensor data
 decomp_parafac;
-% fig_parafac;
+
+%  the decomposition result could be visually examed by the following
+%  script
+% decomp_parafac_test
+
+%%
+fig_parafac;
