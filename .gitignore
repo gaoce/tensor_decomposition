@@ -2,4 +2,6 @@ lib/nway331/
 lib/tensor_toolbox_2.5/
 lib/vis/export_fig/
 
+*.xlsx
+*.mat
 *.pdf
