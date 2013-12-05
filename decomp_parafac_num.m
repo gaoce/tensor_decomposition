@@ -10,6 +10,7 @@ pftest(nIter, data(:,:,(18*chem-17):(18*chem)), nFacMax);
 % save evidence
 saveas(gcf,['./fig/parafac/test/',chemName{18*chem},'.pdf']);
 %%
+% the following vector was created by Ce Gao on 2013-12-03
 nFac = [5 3 4 4 3 ...
         2 4 4 2 3 ...
         3 3 1 2 2 ...
@@ -17,4 +18,4 @@ nFac = [5 3 4 4 3 ...
         2 3 2 2]' ;
     
 %% put nFac into data.mat
-save ./data/data.mat chemName geneName data nFac;
+save ./data/data.mat data chemName geneName pathName nFac;
