@@ -69,8 +69,11 @@ for i  = 1:length(files)
     end
 end
 
-%%
-
+%% construct data and normalize the anomalies to 1, then take the logarithm
 data = cat(3,data120,data116,data108);
+data(data<0) = NaN;
+data(isnan(data) | data == 0) = 1;
+data = log(data);
+
 chemName = cat(1,chem120,chem116,chem108);
 save ../data.mat data geneName chemName pathName;
