@@ -9,4 +9,4 @@ for i = 1:nChem
         nFac(i), [0 0 0 0 NaN]); 
 end
 
-save ./data/data.mat chemName geneName data nFac factsCP perExpl;
+save ./data/data.mat data chemName geneName pathName nFac factsCP perExpl;

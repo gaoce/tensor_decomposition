@@ -1,8 +1,6 @@
 clear; clc;
 % PARSINGRAWDATA parse induction (I) in excels in various layout (see README.md), and
 % save data into data.mat
-% TODO:
-% check inf, nan
 
 %% input gene names for various layout
 [~,gene120,~]  = xlsread('layout.xlsx','A2:A127');

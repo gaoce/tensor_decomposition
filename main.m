@@ -1,7 +1,8 @@
 %% data loading
 clear;clc;close all;
-addpath('./lib/nway331/');            % PARAFAC
-addpath('./lib/vis/export_fig/');     % export_fig
+addpath('./lib/nway331/');             % PARAFAC
+addpath('./lib/vis/export_fig/');      % export_fig
+addpath('./lib/multiple_comparison/'); % multiple comparison
 load ./data/data.mat;
 
 %% parafac 
@@ -10,7 +11,8 @@ load ./data/data.mat;
 % decomp_parafac_num.m
 
 % core script for parafac decomposition of each chemical's tensor data
-decomp_parafac;
+decomp_main;
+gsea_main;
 
 %  the decomposition result could be visually examed by the following
 %  script
