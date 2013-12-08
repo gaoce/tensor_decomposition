@@ -1,8 +1,9 @@
 %% data loading
 clear;clc;close all;
-addpath('./lib/nway331/');             % PARAFAC
-addpath('./lib/vis/export_fig/');      % export_fig
-addpath('./lib/multiple_comparison/'); % multiple comparison
+addpath('./lib/nway331/');              % PARAFAC
+addpath('./lib/multiple_comparison/');  % multiple comparison
+addpath('./lib/vis/cbrewer/');          % color brewer
+addpath('./lib/vis/export_fig/');       % export_fig
 load ./data/data.mat;
 
 %% parafac 
@@ -12,11 +13,15 @@ load ./data/data.mat;
 
 % core script for parafac decomposition of each chemical's tensor data
 decomp_main;
-gsea_main;
 
-%  the decomposition result could be visually examed by the following
-%  script
+% the decomposition result could be visually examed by the following script
 % decomp_parafac_test
+
+% core script for GSEA
+gsea_main;
 
 %%
 fig_parafac;
+fig_gsea;
+table_gsea;
+

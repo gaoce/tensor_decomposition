@@ -17,7 +17,7 @@ for i = 1:nChem
         % switch gene and time dimension
         model_per   = permute(model_raw,[2 1 3]);  
         
-        rank        = gsea_rankCpca(model_per, feat,0.5);
+        rank        = gsea_rankCpca(model_per, feat, 0.8, 0);
         sigs{i}{j}  = gsea_evaluate(rank);
         ranks{i}{j} = rank;
     end

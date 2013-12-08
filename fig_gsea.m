@@ -11,10 +11,10 @@ colors = zeros(nGene,3);
 
 %%
 fh = figure(2);
-% set(fh,'Visible','off');
-for i =2
+set(fh,'Visible','off');
+for i = 1:nChem
     nComp = size(sigs{i},2);
-    for j = 1
+    for j = 1:nComp
         % TODO: use patch
         rank = ranks{i}{j};
         for k = 1:nPath
