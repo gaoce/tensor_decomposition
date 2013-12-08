@@ -6,3 +6,4 @@ lib/multiple_comparison
 *.xlsx
 *.mat
 *.pdf
+*.csv
