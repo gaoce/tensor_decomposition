@@ -1,10 +1,11 @@
-Gene Expression Time Series Tensor Decomposition
-------------------------------------------------
+### Gene Expression Time Series Tensor Decomposition ###
+
 A project to decompose 3D tensor for gene expression time series data.
 
 Run main.m to proceed
 
-### Toolboxes and external utilities ###
+__Toolboxes and external utilities__
+
 please download and put the root folders of the following toolboxes under lib/
 
 * [N-way toolbox v3.31](http://www.models.life.ku.dk/nwaytoolbox)
