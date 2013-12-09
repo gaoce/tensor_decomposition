@@ -44,7 +44,9 @@ for k = 1:nRep
             end
         end
     end
-    export_fig(['./fig/heatmaps/',chemName,'.pdf']);
+    export_fig(['./fig/parafac/heatmaps/',chemName,'.pdf']);
 end
-close(fh);
+
 end
+
+close all;

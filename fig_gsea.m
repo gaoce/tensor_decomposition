@@ -5,9 +5,10 @@ pathUni = unique(pathName);
 nPath = length(pathUni);
 nGene = length(geneName);
 
-cmap = cbrewer('qual','Set2',6);
+cmap = cbrewer('qual','Accent',6);
 cmap = cmap(6:-1:1,:);
 colors = zeros(nGene,3);
+fb = zeros(nGene,1);
 
 %%
 fh = figure(2);
@@ -15,30 +16,58 @@ set(fh,'Visible','off');
 for i = 1:nChem
     nComp = size(sigs{i},2);
     for j = 1:nComp
-        % TODO: use patch
+        clf; % clean figure
+        
         rank = ranks{i}{j};
+        
+        % pathFirstApp stores the first appearance of each path on the
+        % list, in order to add legend
+        pathFirstApp = zeros(nPath,1); 
+        
         for k = 1:nPath
             idx = strcmp(rank.path,pathUni{k});
             colors(idx,:) = repmat(cmap(k,:),sum(idx),1);
+            pathFirstApp(k) = find(idx,1); % find the first index
         end
         
         clf;
-        hold on;
+        
         yHeight = max(rank.score);
+        
+        hold on;
+             
+        % vertical color bar representing pathways
         for w = 1:nGene
-            bar(w,yHeight,1,'FaceColor',colors(w,:),'EdgeColor','none');
+            fb(w) = bar(w,yHeight,1,'FaceColor',colors(w,:),'EdgeColor','none');
         end
         
-        xlim([0.5 nGene+0.5]);
-        ylim([0 yHeight]);
-        scatter(1:nGene,rank.score,40,'fill','MarkerEdgeColor','none');
+        % height of dots representing ranking score
+        scatter(1:nGene,rank.score,30,'k','fill','MarkerEdgeColor','none');
         
         hold off;
         
-        set(gca,'YTick',[]);
-        set(fh,'Color','w','Position',[50 50 1000 400]);
-        export_fig(gcf,['./fig/barCharts/',chemName{18*i},'_',num2str(j),'.pdf']);
+        % legend
+        hl = legend(fb(pathFirstApp),pathUni,'Location','EastOutside');
+        flt = get(hl,'Title'); % legend title handle
+        set(flt,'String','Pathways');
+        set(hl,'EdgeColor','w'); % set legend border color to be white
+
+        % axes limits, labels
+        xlim([0.5 nGene+0.5]);
+        ylim([0 yHeight]);
+        xlabel('Genes');
+        ylabel('CPCA Score');
+        set(gca,'XTick',1:nGene,'XTickLabel',rank.gene,'FontSize',7);
+        rotateXLabels( gca, 90 );
+        
+        % main title
+        hmt = title([chemName{18*i}, '    Component ', num2str(j)]);
+        set(hmt,'FontSize',12);
+        
+        set(fh,'Color','w','Position',[50 50 1000 500]);
+        refresh;
+        export_fig(fh,['./fig/gsea/barCharts/',chemName{18*i},'_',num2str(j),'.pdf']);
         
     end
 end
-
+close all;

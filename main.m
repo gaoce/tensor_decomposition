@@ -4,6 +4,7 @@ addpath('./lib/nway331/');              % PARAFAC
 addpath('./lib/multiple_comparison/');  % multiple comparison
 addpath('./lib/vis/cbrewer/');          % color brewer
 addpath('./lib/vis/export_fig/');       % export_fig
+addpath('./lib/vis/rotateXLabels/');    % rotate x labels
 load ./data/data.mat;
 
 %% parafac 
