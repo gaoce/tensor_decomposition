@@ -15,3 +15,4 @@ please download and put the root folders of the following toolboxes under lib/vi
 
 * [export_fig](http://www.mathworks.com/matlabcentral/fileexchange/23629-exportfig)
 * [cbrewer](http://www.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab)
+* [rotateXLabels](http://www.mathworks.com/matlabcentral/fileexchange/27812-rotate-x-axis-tick-labels)

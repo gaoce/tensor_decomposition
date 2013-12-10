@@ -9,7 +9,8 @@ load ./data/data.mat;
 
 %% parafac 
 
-% please uncomment the following line to manually run 
+% upon first run, please uncomment the following line to manually determine
+% numbers of components
 % decomp_parafac_num.m
 
 % core script for parafac decomposition of each chemical's tensor data
