@@ -6,9 +6,7 @@ clear; clc;
 [~,gene120,~]  = xlsread('layout.xlsx','A2:A127');
 [~,path120,~]  = xlsread('layout.xlsx','B2:B127');
 [~,gene116,~]  = xlsread('layout.xlsx','C2:C121');
-% [~,path116,~]  = xlsread('layout.xlsx','D2:D121');
-[~,gene108,~]  = xlsread('layout.xlsx','E2:E109');
-% [~,path108,~]  = xlsread('layout.xlsx','F2:F109');
+[~,gene108,~]  = xlsread('layout.xlsx','D2:D109');
 
 geneName = intersect(intersect(gene120,gene116), gene108);
 [~,~,idx120] = intersect(geneName,gene120);
