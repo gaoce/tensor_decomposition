@@ -5,15 +5,18 @@ pathUni = unique(pathName);
 nPath = length(pathUni);
 nGene = length(geneName);
 
-cmap = cbrewer('qual','Accent',6);
-cmap = cmap(6:-1:1,:);
+cmap = cbrewer('qual','Accent',nPath);
+cmap = cmap(nPath:-1:1,:);
 colors = zeros(nGene,3);
 fb = zeros(nGene,1);
 
 %%
 fh = figure(2);
-set(fh,'Visible','off');
+set(fh,'color','w','Position',[50 50 900 400],'Visible','off');
+
+disp('-----fig_gsea-----');
 for i = 1:nChem
+    disp(chemName{6*i});
     nComp = size(sigs{i},2);
     for j = 1:nComp
         clf; % clean figure
@@ -61,12 +64,12 @@ for i = 1:nChem
         rotateXLabels( gca, 90 );
         
         % main title
-        hmt = title([chemName{18*i}, '    Component ', num2str(j)]);
+        hmt = title([chemName{6*i}, '    Component ', num2str(j)]);
         set(hmt,'FontSize',12);
         
         set(fh,'Color','w','Position',[50 50 1000 500]);
         refresh;
-        export_fig(fh,['./fig/gsea/barCharts/',chemName{18*i},'_',num2str(j),'.pdf']);
+        export_fig(fh,['./fig/gsea/barCharts/',chemName{6*i},'_',num2str(j),'.pdf']);
         
     end
 end

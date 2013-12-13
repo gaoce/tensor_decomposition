@@ -7,6 +7,7 @@ ranks = cell(nChem,1); % ranking information
 feat.gene    = geneName;
 feat.pathway = pathName;
 
+disp('-----gsea_main-----');
 for i = 1:nChem
     nComp = size(factsCP{i}{1},2);
     rankComp = cell(nComp,1);
@@ -23,4 +24,4 @@ for i = 1:nChem
     end
 end
 
-save ./data/data.mat chemName geneName pathName data nFac factsCP perExpl sigs ranks;
+save('./data/data.mat','sigs', 'ranks', '-append');

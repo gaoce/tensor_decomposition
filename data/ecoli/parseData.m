@@ -66,10 +66,25 @@ for i  = 1:length(files)
 end
 
 %% construct data and normalize the anomalies to 1, then take the logarithm
-data = cat(3,data120,data116,data108);
-data(data<0) = NaN;
-data(isnan(data) | data == 0) = 1;
-data = log(data);
+dataAll = cat(3,data120,data116,data108);
+dataAll(dataAll<0) = NaN;
+dataAll(isnan(dataAll) | dataAll == 0) = 1;
+dataAll = log(dataAll);
+chemNameAll = cat(1,chem120,chem116,chem108);
 
-chemName = cat(1,chem120,chem116,chem108);
+%% in the final data, each sample is the mean value of 3 replicates
+[nGene,nTime,nSample] = size(dataAll);
+data = zeros(nGene,nTime, nSample/3);
+nChem = length(unique(chemNameAll));
+chemName = cell(nChem*6,1);
+
+for i = 1:nChem
+    for j = 1:6
+        data(:,:,6*(i-1)+j) = ...
+            mean(dataAll(:,:,[18*(i-1)+j,18*(i-1)+j+6,18*(i-1)+j+12]),3) ;
+        chemName{6*(i-1)+j} = chemNameAll{18*(i-1)+j};
+    end
+end
+
+%%
 save ../data.mat data geneName chemName pathName;

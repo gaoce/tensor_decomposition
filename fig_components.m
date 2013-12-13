@@ -8,7 +8,9 @@ fh = figure(1);
 set(fh,'Visible','off');
 set(fh,'Position',[50 50 800 600],'color','w');
 
+disp('-----fig_components-----');
 for i = 1:nChem
+    disp(chemName{6*i});
     nComp = size(factsCP{i}{1},2);
     legendStr = cell(nComp,1);
     for j = 1:nComp
@@ -22,7 +24,7 @@ for i = 1:nChem
     xlabel('Genes','FontSize',10);
     ylabel('model factor','FontSize',10);
     legend(legendStr,'Location','SouthEast');
-    title(chemName{18*i},'FontSize',13);
+    title(chemName{6*i},'FontSize',13);
     
     subplot(2,2,3);
     plot(factsCP{i}{2},'LineWidth',1.5);
@@ -38,6 +40,6 @@ for i = 1:nChem
     ylabel('model factor','FontSize',10);
     legend(legendStr,'Location','SouthEast','FontSize',8);
     
-    export_fig(fh,['./fig/parafac/components/',chemName{18*i},'.pdf']);
+    export_fig(fh,['./fig/parafac/components/',chemName{6*i},'.pdf']);
 end
 close all;

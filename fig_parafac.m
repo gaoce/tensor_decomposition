@@ -1,9 +1,11 @@
 nChem = length(unique(chemName));
 
 % heat maps
+disp('-----fig_heatMapDecomp-----');
 for i = 1:nChem
-    disp(chemName{18*i});
-    fig_heatMapDecomp(data(:,:,(18*i-17):(18*i)), factsCP{i}, chemName{18*i});
+    disp(chemName{6*i});
+    fig_heatMapDecomp(data(:,:,(6*i-5):(6*i)), factsCP{i}, chemName{6*i});
 end
 
+disp('-----fig_heatMapDecomp-----');
 fig_components;

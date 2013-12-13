@@ -15,38 +15,34 @@ for i = 1:nComp
 end
 
 
-fh = figure(1);
+fh = figure(1); clf;
 set(fh,'Position',[50 50 200*(nComp+1) 3000],'color','w','Visible','off');
 
-nRep = 1;
-nConc = 18;
-for k = 1:nRep
-    for j = 1:nConc
-        s1 = subplot(nConc,nComp+1,(j-1)*(nComp+1)+1 );
-        imagesc(data(:,:,j+(k-1)*nConc),colorRange);
+nConc = 6;
+for j = 1:nConc
+    s1 = subplot(nConc,nComp+1,(j-1)*(nComp+1)+1 );
+    imagesc(data(:,:,j),colorRange);
+    set(gca,'XTick',[],'YTick',[]);
+    if j == 1, title(chemName); end
+    s1Pos = get(s1,'position');
+    
+    for i = 1:nComp
+        s2 = subplot(nConc,nComp+1,(j-1)*(nComp+1)+1+i);
+        imagesc(models{i}(:,:,j), colorRange);
         set(gca,'XTick',[],'YTick',[]);
-        if j == 1, title(chemName); end
-        s1Pos = get(s1,'position');
-        
-        for i = 1:nComp
-            s2 = subplot(nConc,nComp+1,(j-1)*(nComp+1)+1+i);
-            imagesc(models{i}(:,:,j+(k-1)*nConc), colorRange);
-            set(gca,'XTick',[],'YTick',[]);
-            if j == 1, title(['Comp ',num2str(i)]); end
-            if i == nComp
-                fc = colorbar;
-                set(fc,'YTick',colorRange(1):1:colorRange(2));
-                
-                % adjust the image size, which has been narrowed by colorbar 
-                s2Pos = get(s2,'position');
-                s2Pos(3:4) = s1Pos(3:4);
-                set(s2,'position',s2Pos);
-            end
+        if j == 1, title(['Comp ',num2str(i)]); end
+        if i == nComp
+            fc = colorbar;
+            set(fc,'YTick',colorRange(1):1:colorRange(2));
+            
+            % adjust the image size, which has been narrowed by colorbar
+            s2Pos = get(s2,'position');
+            s2Pos(3:4) = s1Pos(3:4);
+            set(s2,'position',s2Pos);
         end
     end
-    export_fig(['./fig/parafac/heatmaps/',chemName,'.pdf']);
 end
+export_fig(['./fig/parafac/heatmaps/',chemName,'.pdf']);
+
 
 end
-
-close all;
