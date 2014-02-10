@@ -13,6 +13,9 @@ Input:
 
 Note:
 
+* expression data in the files are I = Pe/Pc, where I is the induction factor, and
+    Pe, Pc are population normalized (P=GFP/OD) expression values for experiment and
+    control, respectively
 * broken__chem_.xlsx contain data chemicals with missing data, discarded
 * _chem_: chemical names
 
@@ -31,4 +34,4 @@ respectively.
 	
 Note:
 -----
-H2O2, MMC are new data (second batch)
+H2O2, MMC are new data (done for the second time)
